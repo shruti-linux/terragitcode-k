@@ -1,6 +1,6 @@
 ---
 - name: Configure CentOS 9 VM
-  hosts: centos9
+  hosts: node1
   become: true
   tasks:
     - name: Update all packages
