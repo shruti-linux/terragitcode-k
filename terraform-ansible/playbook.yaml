@@ -3,10 +3,6 @@
   hosts: centos9
   become: true
   tasks:
-    - name: Update all packages
-      dnf:
-        name: "*"
-        state: latest
 
     - name: Install required packages
       dnf:
