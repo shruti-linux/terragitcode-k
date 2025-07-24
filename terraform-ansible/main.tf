@@ -15,7 +15,7 @@ terraform {
   }
 
   backend "gcs" {
-    bucket      = " tf-state-prod-byshrutier"
+    bucket      = "tf-state-prod-byshrutier"
     prefix      = "ansibleterraform"
     credentials = "/home/shruti/sec.json"
    }
