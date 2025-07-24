@@ -43,7 +43,7 @@ resource "google_compute_instance" "centos9_vm" {
   }
 
   metadata = {
-    ssh-keys = "root:${file("/home/shruti/.ssh/id_rsa.pub")}"
+    ssh-keys = "shruti:${file("/home/shruti/.ssh/id_rsa.pub")}"
   }
 
   tags = ["centos9"]
