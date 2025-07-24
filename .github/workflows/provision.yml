@@ -8,9 +8,9 @@ jobs:
     runs-on: self-hosted 
 
     env:
-      TF_VAR_project_id: ""
-      TF_VAR_credentials_file: "~/sec.json"
-      TF_VAR_public_key_path: "~/.ssh/id_rsa.pub"
+      TF_VAR_project_id: "testjune13-462806"
+      TF_VAR_credentials_file: "/home/shruti/sec.json"
+      TF_VAR_public_key_path: "/home/shruti/.ssh/id_rsa.pub"
 
     steps:
       - name: Checkout repository
@@ -18,8 +18,8 @@ jobs:
 
       - name: Set up SSH key
         run: |
-          chmod 600 ~/.ssh/id_rsa
-          chmod 644 ~/.ssh/id_rsa.pub
+          chmod 600 /home/shruti/.ssh/id_rsa
+          chmod 644 /home/shruti/.ssh/id_rsa.pub
 
       - name: Install Terraform and Ansible on CentOS 9
         run: |
@@ -57,7 +57,7 @@ jobs:
         run: |
           cd terraform-ansible 
           echo "[centos9]" > inventory
-          echo "$(cat ip.txt) ansible_user=centos ansible_ssh_private_key_file=~/.ssh/id_rsa ansible_python_interpreter=/usr/bin/python3" >> inventory
+          echo "$(cat ip.txt) ansible_user=centos ansible_ssh_private_key_file=/home/shruti/.ssh/id_rsa ansible_python_interpreter=/usr/bin/python3" >> inventory
 
       - name: Run Ansible Playbook
         run: |
