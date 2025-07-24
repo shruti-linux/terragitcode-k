@@ -1,5 +1,5 @@
 provider "google" {
-  credentials = file("~/sec.json")
+  credentials = file("/home/shruti/sec.json")
   project     = var.project_id
   region      = var.region
 }
@@ -17,6 +17,6 @@ terraform {
   backend "gcs" {
     bucket      = "tf-state-prod-bykumar"
     prefix      = "dev"
-    credentials = "~/sec.json"
+    credentials = "home/shruti/sec.json"
    }
 }
