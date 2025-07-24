@@ -1,0 +1,31 @@
+---
+- name: Configure CentOS 9 VM
+  hosts: centos9
+  become: true
+  tasks:
+    - name: Update all packages
+      dnf:
+        name: "*"
+        state: latest
+
+    - name: Install required packages
+      dnf:
+        name:
+          - git
+          - curl
+          - wget
+          - vim
+        state: present
+
+    - name: Create a user for automation
+      user:
+        name: devops
+        shell: /bin/bash
+        create_home: yes
+
+    - name: Add sudo privileges for devops user
+      lineinfile:
+        path: /etc/sudoers.d/devops
+        line: 'devops ALL=(ALL) NOPASSWD: ALL'
+        create: yes
+        mode: '0440'
