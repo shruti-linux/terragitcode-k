@@ -1,0 +1,39 @@
+name: Terraform + Ansible GCP Deployment
+
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # Setup Terraform
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: latest
+
+      # Authenticate with GCP
+      - name: Authenticate to GCP
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+      # Initialize & Apply Terraform
+      - name: Terraform Init & Apply
+        run: |
+          terraform init
+          terraform apply -auto-approve
+
+      # Setup Ansible
+      - name: Set up Ansible
+        run: sudo apt-get install -y ansible
+
+      # Run Ansible Playbook
+      - name: Run Ansible Playbook
+        run: |
+          cd ansible
+          ansible-playbook -i inventory.ini playbook.yml \
+            --private-key ~/.ssh/id_rsa \
+            --user ansible-user
