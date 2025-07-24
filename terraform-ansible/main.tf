@@ -1,7 +1,7 @@
 provider "google" {
   project     = "testjune13-462806"
   region      = "us-central1"
-  credentials = file("~/sec.json")
+  credentials = file("/home/shruti/sec.json")
 }
 
 #tf-state-prod-bykumar need to create manully
