@@ -15,7 +15,7 @@ terraform {
   }
 
   backend "gcs" {
-    bucket      = "tf-state-prod-bykumar"
+    bucket      = "tf-state-prod-byshrutier"
     prefix      = "ansibleterraform"
     credentials = "/home/shruti/sec.json"
    }
@@ -43,7 +43,7 @@ resource "google_compute_instance" "centos9_vm" {
   }
 
   metadata = {
-    ssh-keys = "centos:${file("~/.ssh/id_rsa.pub")}"
+    ssh-keys = "centos:${file("/home/shruti/.ssh/id_rsa.pub")}"
   }
 
   tags = ["centos9"]
