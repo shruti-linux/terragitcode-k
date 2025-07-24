@@ -17,6 +17,6 @@ terraform {
   backend "gcs" {
     bucket      = "tf-state-prod-bykumar"
     prefix      = "dev"
-    credentials = "home/shruti/sec.json"
+    credentials = "/home/shruti/sec.json"
    }
 }
