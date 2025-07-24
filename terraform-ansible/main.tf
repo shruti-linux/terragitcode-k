@@ -1,5 +1,5 @@
 provider "google" {
-  project     = "galvanic-flame-466111-q8"
+  project     = "testjune13-462806"
   region      = "us-central1"
   credentials = file("~/sec.json")
 }
@@ -15,9 +15,9 @@ terraform {
   }
 
   backend "gcs" {
-    bucket      = "tf-state-prod-bykumar"
+    bucket      = " tf-state-prod-byshrutier"
     prefix      = "ansibleterraform"
-    credentials = "~/sec.json"
+    credentials = "/home/shruti/sec.json"
    }
 }
 
