@@ -1,0 +1,14 @@
+---
+- name: Configure GCP VMs
+  hosts: gcp_vms
+  become: true
+  tasks:
+    - name: Create a new user
+      user:
+        name: "new-user"
+        groups: sudo
+        append: yes
+        shell: /bin/bash
+        password: "{{ 'password' | password_hash('sha512') }}"  # Change this!
+
+        
