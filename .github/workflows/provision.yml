@@ -57,7 +57,7 @@ jobs:
         run: |
           cd terraform-ansible 
           echo "[centos9]" > inventory
-          echo "$(cat ip.txt) ansible_user=kc1user1 ansible_ssh_private_key_file=/home/shruti/.ssh/id_rsa ansible_python_interpreter=/usr/bin/python3" >> inventory
+          echo "$(cat ip.txt) ansible_user=centos ansible_ssh_private_key_file=/home/shruti/.ssh/id_rsa ansible_python_interpreter=/usr/bin/python3" >> inventory
 
       - name: Run Ansible Playbook
         run: |
